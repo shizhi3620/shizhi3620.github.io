@@ -4,16 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
-    {{ $description := or .Description .Site.Params.description }}
+    {{ $description := .Description | default .Site.Params.description }}
     <meta name="description" content="{{ $description }}">
     <link rel="canonical" href="{{ .Permalink }}">
     <meta property="og:title" content="{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}">
     <meta property="og:description" content="{{ $description }}">
-    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:type" content="{{ if eq .Section "posts" }}article{{ else }}website{{ end }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
     {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">{{ end }}
+    <link rel="alternate" hreflang="x-default" href="{{ .Site.Home.Permalink }}">
     {{ with .OutputFormats.Get "RSS" }}{{ printf `<link rel="alternate" type="application/rss+xml" href="%s" title="%s">` .Permalink $.Site.Title | safeHTML }}{{ end }}
-    <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+    {{ with resources.Get "css/site.css" }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
   </head>
   <body>
     {{ $isChinese := eq .Language.Lang "zh" }}

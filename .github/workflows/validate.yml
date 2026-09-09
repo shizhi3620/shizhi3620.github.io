@@ -21,4 +21,4 @@ jobs:
           hugo-version: '0.165.0'
           extended: true
       - name: Build production site
-        run: hugo --minify --gc
+        run: node scripts/validate-site.mjs

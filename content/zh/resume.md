@@ -1,6 +1,7 @@
 ---
 title: "公开履历"
 description: "一份持续更新、只记录可公开事实的职业资料。"
+translationKey: "resume"
 ---
 
 ## 方向

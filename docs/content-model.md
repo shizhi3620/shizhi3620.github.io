@@ -13,6 +13,7 @@ Every article should define these front matter fields:
 | `categories` | yes | Broad content areas such as work, projects, job-search, or life. |
 | `draft` | yes | `true` keeps content out of production builds; use `false` to publish. |
 | `translationKey` | yes for pairs | Stable identifier shared by Chinese and English versions. |
+| `translationPending` | required for an intentional exception | Chinese-only published posts must set this to `true` until their English counterpart exists. |
 | `featured` | optional | Set to `true` for homepage highlights. |
 
 English translations should additionally record `translationSource: "ai-reviewed"` after the author has reviewed them. Translation automation must preserve all factual metadata and links.

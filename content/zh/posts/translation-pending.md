@@ -6,6 +6,7 @@ tags: ["写作"]
 categories: ["生活"]
 draft: false
 translationKey: "translation-pending"
+translationPending: true
 featured: false
 ---
 
