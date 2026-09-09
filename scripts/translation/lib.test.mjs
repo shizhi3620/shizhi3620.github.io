@@ -57,6 +57,14 @@ test("draft rendering protects routing and factual metadata", () => {
   assert.doesNotMatch(output, /中文标题/);
 });
 
+test("draft rendering rejects changed protected links or numeric values", () => {
+  const numericSource = source.replace("正文中的", "2026 年正文中的");
+  const changedLink = modelOutput.replace("https://example.com", "https://elsewhere.example");
+  const changedNumber = modelOutput.replace("Translated body", "Translated body 2025");
+  assert.throws(() => renderEnglishDraft(numericSource, changedLink), /protected link or numeric value/);
+  assert.throws(() => renderEnglishDraft(numericSource, changedNumber), /protected link or numeric value/);
+});
+
 test("draft rendering replaces multiline translated metadata cleanly", () => {
   const multilineSource = source.replace(
     'tags: ["写作"]\ncategories: ["生活"]',
