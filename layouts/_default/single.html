@@ -1,5 +1,6 @@
 {{ define "main" }}
 <article>
+  <p class="eyebrow">{{ if .Section }}{{ .Section | humanize }}{{ else }}{{ if eq .Language.Lang "zh" }}个人资料{{ else }}Profile{{ end }}{{ end }}</p>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p class="summary">{{ . }}</p>{{ end }}
   {{ .Content }}

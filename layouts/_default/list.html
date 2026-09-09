@@ -1,5 +1,26 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+{{ $isChinese := eq .Language.Lang "zh" }}
+<header class="page-header">
+  <p class="eyebrow">{{ if eq .Section "projects" }}{{ if $isChinese }}公开项目{{ else }}Public projects{{ end }}{{ else }}{{ if $isChinese }}个人出版物{{ else }}Personal publication{{ end }}{{ end }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+</header>
 {{ .Content }}
-{{ range .Pages }}<article><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>{{ with .Description }}<p>{{ . }}</p>{{ end }}</article>{{ end }}
+{{ if .Pages }}
+  <div class="post-list">
+    {{ range .Pages.ByDate.Reverse }}
+      <article class="post-preview">
+        {{ with .Date }}<p class="metadata"><time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2006-01-02" }}</time></p>{{ end }}
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      </article>
+    {{ end }}
+  </div>
+{{ else }}
+  <div class="empty-state">
+    <h2>{{ if eq .Section "projects" }}{{ if $isChinese }}项目正在整理{{ else }}Projects are being prepared{{ end }}{{ else }}{{ if $isChinese }}文章正在整理{{ else }}Writing is being prepared{{ end }}{{ end }}</h2>
+    <p>{{ if eq .Section "projects" }}{{ if $isChinese }}可公开的项目复盘会陆续归档到这里；现在可以先在 GitHub 查看代码。{{ else }}Public project notes will be collected here. In the meantime, explore the code on GitHub.{{ end }}{{ else }}{{ if $isChinese }}新的双语文章即将发布。{{ else }}New bilingual notes will be published soon.{{ end }}{{ end }}</p>
+    {{ if eq .Section "projects" }}<a class="button" href="{{ .Site.Params.githubURL }}">{{ if $isChinese }}前往 GitHub{{ else }}Visit GitHub{{ end }}</a>{{ end }}
+  </div>
+{{ end }}
 {{ end }}
