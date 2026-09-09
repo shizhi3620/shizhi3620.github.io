@@ -1,0 +1,54 @@
+baseURL: "https://shizhi3620.github.io/"
+locale: "zh-CN"
+title: "Shizhi's Notes"
+defaultContentLanguage: zh
+defaultContentLanguageInSubdir: true
+enableRobotsTXT: true
+hasCJKLanguage: true
+summaryLength: 120
+
+languages:
+  zh:
+    label: "中文"
+    locale: "zh-CN"
+    weight: 1
+    contentDir: "content/zh"
+    title: "Shizhi 的博客"
+    params:
+      description: "记录生活、工作与求职中的观察和实践。"
+  en:
+    label: "English"
+    locale: "en-US"
+    weight: 2
+    contentDir: "content/en"
+    title: "Shizhi's Notes"
+    params:
+      description: "Notes on life, work, and the journey of finding meaningful work."
+
+params:
+  author: "Shizhi"
+  description: "记录生活、工作与求职中的观察和实践。"
+  contactEmail: "shizhi3620@gmail.com"
+  githubURL: "https://github.com/shizhi3620"
+
+taxonomies:
+  category: categories
+  tag: tags
+
+outputs:
+  home:
+    - HTML
+    - RSS
+  section:
+    - HTML
+    - RSS
+
+sitemap:
+  changefreq: monthly
+  priority: 0.5
+  filename: sitemap.xml
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false

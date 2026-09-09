@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="{{ .Language.Lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
+    {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ with .OutputFormats.Get "RSS" }}{{ printf `<link rel="alternate" type="application/rss+xml" href="%s" title="%s">` .Permalink $.Site.Title | safeHTML }}{{ end }}
+    <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+      <nav aria-label="Site navigation">
+        {{ range .Site.Menus.main }}<a href="{{ .URL | relLangURL }}">{{ .Name }}</a>{{ end }}
+      </nav>
+    </header>
+    <main id="main-content">{{ block "main" . }}{{ end }}</main>
+    <footer><a href="mailto:{{ .Site.Params.contactEmail }}">{{ .Site.Params.contactEmail }}</a></footer>
+  </body>
+</html>

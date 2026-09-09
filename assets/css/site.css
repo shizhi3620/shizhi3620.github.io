@@ -1,0 +1,7 @@
+:root { color-scheme: light; font-family: system-ui, sans-serif; line-height: 1.6; }
+body { color: #202124; margin: 0 auto; max-width: 48rem; padding: 1rem; }
+.site-header, footer { align-items: baseline; display: flex; gap: 1rem; justify-content: space-between; padding: 1rem 0; }
+nav { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+a { color: #075985; }
+main { min-height: 60vh; }
+@media (max-width: 40rem) { .site-header { align-items: flex-start; flex-direction: column; } }
