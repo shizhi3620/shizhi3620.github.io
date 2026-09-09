@@ -2,6 +2,8 @@
 {{ $isChinese := eq .Language.Lang "zh" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
 <section class="hero" aria-labelledby="home-title">
+  <div class="road-sun" aria-hidden="true"></div>
+  <div class="road-line" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="hero-grid">
     <div class="hero-main">
       <p class="eyebrow">{{ if $isChinese }}个人出版物 · 公开履历{{ else }}Personal publication · Public profile{{ end }}</p>
@@ -14,7 +16,7 @@
     </div>
     <aside class="hero-note" aria-label="{{ if $isChinese }}出版说明{{ else }}Publication note{{ end }}">
       <span class="note-mark" aria-hidden="true">✦</span>
-      <p class="eyebrow">{{ if $isChinese }}正在记录{{ else }}Currently writing{{ end }}</p>
+      <p class="eyebrow">{{ if $isChinese }}正在记录 · 一路向前{{ else }}Currently writing · Keep moving{{ end }}</p>
       <p>{{ if $isChinese }}把工作、生活与求职中的观察，整理成可以反复回看的公开笔记。{{ else }}Turning observations from work, life, and job searching into notes worth revisiting.{{ end }}</p>
       <a href="{{ "/about/" | relLangURL }}">{{ if $isChinese }}了解写作边界 →{{ else }}Read the editorial note →{{ end }}</a>
     </aside>
