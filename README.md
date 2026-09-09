@@ -30,7 +30,7 @@ For translation automation, create a repository Actions secret named `DEEPSEEK_A
 
 ## Content and translation
 
-Use standard Markdown and the front matter contract in [`docs/content-model.md`](docs/content-model.md). Chinese is the factual source. English translations are created by the DeepSeek workflow only when a pull request is explicitly labeled `translate`; generated translations remain drafts until the author reviews and merges them.
+Use standard Markdown and the front matter contract in [`docs/content-model.md`](docs/content-model.md). Chinese is the factual source. English translations are created by the DeepSeek workflow only when a maintainer explicitly labels a pull request `translate`; generated translations remain drafts until the author reviews and merges them. Add the `DEEPSEEK_API_KEY` repository Actions secret before using this workflow. See [`docs/content-model.md`](docs/content-model.md#deepseek-draft-translation) for the protected metadata and review procedure.
 
 ## Privacy
 

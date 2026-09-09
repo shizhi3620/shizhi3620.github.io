@@ -19,3 +19,11 @@ Every article should define these front matter fields:
 English translations should additionally record `translationSource: "ai-reviewed"` after the author has reviewed them. Translation automation must preserve all factual metadata and links.
 
 Hugo treats matching `translationKey` values as the sole pairing mechanism. Do not infer pairs from titles, slugs, dates, or directories. A published article without a counterpart must retain its normal article URL and show that the other language is not available yet.
+
+## DeepSeek draft translation
+
+The repository workflow runs only when a maintainer adds the `translate` label to a pull request targeting `main`. It reads changed `content/zh/posts/*.md` files through the GitHub API at the pull request commit; it never checks out or executes the pull request's code. It sends article data to DeepSeek's `deepseek-chat` endpoint and creates or updates a separate draft pull request on an `automation/deepseek-translation-pr-<source-number>` branch.
+
+Before enabling the workflow, add `DEEPSEEK_API_KEY` as a repository Actions secret. Never put that key in a Markdown file, workflow variable, issue, or pull request. The workflow deliberately prints only status messages, not article text, API responses, command output, or credentials.
+
+The generated English files preserve source routing and factual metadata such as `date`, `translationKey`, `slug`, `aliases`, and `featured`. They are always written with `draft: true` and `translationSource: "ai-generated"`. A human must check factual accuracy, links, and naturalness, then change those fields to `draft: false` and `translationSource: "ai-reviewed"` before merging the draft translation pull request.
