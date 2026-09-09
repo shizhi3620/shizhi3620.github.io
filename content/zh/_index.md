@@ -1,5 +1,5 @@
 ---
-title: "Shizhi 的博客"
+title: "路长的博客"
 description: "记录生活、工作与求职中的观察和实践。"
 translationKey: "home"
 ---

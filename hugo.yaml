@@ -1,6 +1,6 @@
 baseURL: "https://shizhi3620.github.io/"
 locale: "zh-CN"
-title: "Shizhi's Notes"
+title: "Jim's Notes"
 defaultContentLanguage: zh
 defaultContentLanguageInSubdir: true
 enableRobotsTXT: true
@@ -13,7 +13,7 @@ languages:
     locale: "zh-CN"
     weight: 1
     contentDir: "content/zh"
-    title: "Shizhi 的博客"
+    title: "路长的博客"
     params:
       description: "记录生活、工作与求职中的观察和实践。"
   en:
@@ -21,12 +21,12 @@ languages:
     locale: "en-US"
     weight: 2
     contentDir: "content/en"
-    title: "Shizhi's Notes"
+    title: "Jim's Notes"
     params:
       description: "Notes on life, work, and the journey of finding meaningful work."
 
 params:
-  author: "Shizhi"
+  author: "Jim"
   description: "记录生活、工作与求职中的观察和实践。"
   contactEmail: "shizhi3620@gmail.com"
   githubURL: "https://github.com/shizhi3620"
