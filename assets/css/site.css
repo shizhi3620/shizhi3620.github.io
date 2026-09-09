@@ -16,7 +16,7 @@ main { min-height: 65vh; padding-bottom: 4rem; }
 .skip-link { background: #24211e; color: #fff; left: 0.75rem; padding: 0.6rem 0.8rem; position: absolute; top: -4rem; z-index: 1; }
 .skip-link:focus { top: 0.75rem; }
 .hero { border-bottom: 1px solid #d8d3ca; padding: 5rem 0 4rem; }
-.hero h1 { font-family: ui-serif, Georgia, serif; font-size: 4.5rem; line-height: 1.08; margin: 0; max-width: 14ch; }
+.hero h1 { font-family: ui-serif, Georgia, serif; font-size: 4.5rem; line-height: 1.08; margin: 0; }
 .hero-copy, .lead, .summary { color: #57514b; font-size: 1.12rem; max-width: 42rem; }
 .hero-copy p { margin-bottom: 0; }
 .eyebrow, .metadata { color: #766f67; font-size: 0.82rem; font-weight: 750; text-transform: uppercase; }
