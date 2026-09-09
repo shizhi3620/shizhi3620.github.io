@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ $isChinese := eq .Language.Lang "zh" }}
+<header class="page-header"><p class="eyebrow">{{ if eq .Section "projects" }}{{ if $isChinese }}公开项目{{ else }}Public projects{{ end }}{{ else }}{{ if $isChinese }}个人出版物{{ else }}Personal publication{{ end }}{{ end }}</p><h1>{{ .Title }}</h1>{{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}</header>
+{{ .Content }}
+{{ if .Pages }}
+  <div class="post-list">
+    {{ range .Pages.ByDate.Reverse }}
+      <article class="post-preview">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>{{ with .Params.categories }} · {{ range . }}<a href="{{ "categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}{{ end }}</p>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ with .Params.tags }}<p class="tags">{{ range . }}<a href="{{ "tags/" | relLangURL }}{{ . | urlize }}/">#{{ . }}</a> {{ end }}</p>{{ end }}
+      </article>
+    {{ end }}
+  </div>
+{{ else }}
+  <div class="empty-state"><h2>{{ if eq .Section "projects" }}{{ if $isChinese }}项目正在整理{{ else }}Projects are being prepared{{ end }}{{ else }}{{ if $isChinese }}文章正在整理{{ else }}Writing is being prepared{{ end }}{{ end }}</h2><p>{{ T "noArticles" }}</p>{{ if eq .Section "projects" }}<a class="button" href="{{ .Site.Params.githubURL }}">{{ if $isChinese }}前往 GitHub{{ else }}Visit GitHub{{ end }}</a>{{ end }}</div>
+{{ end }}
+{{ end }}

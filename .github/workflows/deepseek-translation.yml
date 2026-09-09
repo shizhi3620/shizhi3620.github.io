@@ -1,0 +1,32 @@
+name: Draft English translation
+
+on:
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: deepseek-translation-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    # A maintainer must explicitly apply this label. The script checks it again.
+    if: >-
+      github.event.label.name == 'translate' &&
+      github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out trusted base revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: true
+      - name: Create draft translation pull request
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/translation/run.mjs

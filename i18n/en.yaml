@@ -1,0 +1,18 @@
+- id: home
+  translation: "Home"
+- id: about
+  translation: "About"
+- id: writing
+  translation: "Writing"
+- id: categories
+  translation: "Categories"
+- id: tags
+  translation: "Tags"
+- id: languageSwitch
+  translation: "Language"
+- id: translationUnavailable
+  translation: "%s translation is not available yet"
+- id: noArticles
+  translation: "No published articles yet."
+- id: aiReviewed
+  translation: "AI-translated and reviewed by the author."

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="记录生活、工作与求职中的观察和实践。">
+    <link rel="canonical" href="{{ "zh/" | absURL }}">
+    <meta property="og:title" content="Shizhi 的博客">
+    <meta property="og:description" content="记录生活、工作与求职中的观察和实践。">
+    <meta property="og:url" content="{{ "zh/" | absURL }}">
+    <meta property="og:type" content="website">
+    <title>Shizhi 的博客</title>
+  </head>
+  <body>
+    <main id="main-content"><h1>Shizhi 的博客</h1><p><a id="language-fallback" href="{{ .Permalink }}">进入中文版</a></p></main>
+    <script>
+      (function () {
+        var languages = navigator.languages || [navigator.language || ""];
+        var wantsEnglish = languages.some(function (language) {
+          return language.toLowerCase().indexOf("en") === 0;
+        });
+        window.location.replace(wantsEnglish ? "{{ "en/" | absURL }}" : "{{ .Permalink }}");
+      }());
+    </script>
+  </body>
+</html>
