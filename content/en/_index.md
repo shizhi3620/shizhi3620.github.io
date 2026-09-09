@@ -1,5 +1,5 @@
 ---
-title: "Shizhi's Notes"
+title: "Jim's Notes"
 description: "Notes on life, work, and the journey of finding meaningful work."
 translationKey: "home"
 ---
