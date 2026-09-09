@@ -15,4 +15,6 @@ Every article should define these front matter fields:
 | `translationKey` | yes for pairs | Stable identifier shared by Chinese and English versions. |
 | `featured` | optional | Set to `true` for homepage highlights. |
 
-English translations should additionally record that they were AI translated and reviewed by the author in the page metadata used by the theme. Translation automation must preserve all factual metadata and links.
+English translations should additionally record `translationSource: "ai-reviewed"` after the author has reviewed them. Translation automation must preserve all factual metadata and links.
+
+Hugo treats matching `translationKey` values as the sole pairing mechanism. Do not infer pairs from titles, slugs, dates, or directories. A published article without a counterpart must retain its normal article URL and show that the other language is not available yet.

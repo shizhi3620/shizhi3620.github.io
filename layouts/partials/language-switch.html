@@ -1,0 +1,25 @@
+{{ $current := .Language.Lang }}
+<nav class="language-switch" aria-label="{{ T "languageSwitch" }}">
+  {{ if .IsPage }}
+    {{ range .AllTranslations }}
+      {{ if eq .Language.Lang $current }}
+        <span lang="{{ .Language.Lang }}" aria-current="page">{{ .Language.Label }}</span>
+      {{ else }}
+        <a lang="{{ .Language.Lang }}" hreflang="{{ .Language.Lang }}" href="{{ .RelPermalink }}">{{ .Language.Label }}</a>
+      {{ end }}
+    {{ end }}
+    {{ if not .IsTranslated }}
+      {{ range .Site.Languages }}
+        {{ if ne .Lang $current }}<span class="translation-status">{{ printf (T "translationUnavailable") .Label }}</span>{{ end }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ range .Site.Languages }}
+      {{ if eq .Lang $current }}
+        <span lang="{{ .Lang }}" aria-current="page">{{ .Label }}</span>
+      {{ else }}
+        <a lang="{{ .Lang }}" hreflang="{{ .Lang }}" href="{{ printf "/%s/" .Lang | relURL }}">{{ .Label }}</a>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</nav>

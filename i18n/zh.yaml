@@ -1,0 +1,18 @@
+- id: home
+  translation: "首页"
+- id: about
+  translation: "关于"
+- id: writing
+  translation: "文章"
+- id: categories
+  translation: "分类"
+- id: tags
+  translation: "标签"
+- id: languageSwitch
+  translation: "切换语言"
+- id: translationUnavailable
+  translation: "暂未提供 %s 版本"
+- id: noArticles
+  translation: "暂无已发布文章。"
+- id: aiReviewed
+  translation: "英文版本由 AI 翻译，并经作者审核。"

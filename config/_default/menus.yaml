@@ -1,10 +1,13 @@
 main:
   - name: "Home"
+    identifier: "home"
     pageRef: "/"
     weight: 10
   - name: "About"
+    identifier: "about"
     pageRef: "/about"
     weight: 20
   - name: "Writing"
+    identifier: "writing"
     pageRef: "/posts"
     weight: 30

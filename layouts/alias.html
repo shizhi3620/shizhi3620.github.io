@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Shizhi 的博客</title>
+  </head>
+  <body>
+    <p><a id="language-fallback" href="{{ .Permalink }}">进入中文版</a></p>
+    <script>
+      (function () {
+        var languages = navigator.languages || [navigator.language || ""];
+        var wantsEnglish = languages.some(function (language) {
+          return language.toLowerCase().indexOf("en") === 0;
+        });
+        window.location.replace(wantsEnglish ? "{{ "en/" | absURL }}" : "{{ .Permalink }}");
+      }());
+    </script>
+  </body>
+</html>
