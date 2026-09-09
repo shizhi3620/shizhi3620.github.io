@@ -2,12 +2,22 @@
 {{ $isChinese := eq .Language.Lang "zh" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
 <section class="hero" aria-labelledby="home-title">
-  <p class="eyebrow">{{ if $isChinese }}个人出版物 · 公开履历{{ else }}Personal publication · Public profile{{ end }}</p>
-  <h1 id="home-title">{{ if $isChinese }}路长的工作与生活笔记{{ else }}Jim's notes on work and life{{ end }}</h1>
-  <div class="hero-copy">{{ .Content }}</div>
-  <div class="hero-actions">
-    <a class="button" href="{{ "/projects/" | relLangURL }}">{{ if $isChinese }}查看公开项目{{ else }}Explore public projects{{ end }}</a>
-    <a class="text-link" href="{{ "/resume/" | relLangURL }}">{{ if $isChinese }}阅读公开履历{{ else }}Read the resume{{ end }}</a>
+  <div class="hero-grid">
+    <div class="hero-main">
+      <p class="eyebrow">{{ if $isChinese }}个人出版物 · 公开履历{{ else }}Personal publication · Public profile{{ end }}</p>
+      <h1 id="home-title">{{ if $isChinese }}路长的工作与生活笔记{{ else }}Jim's notes on work and life{{ end }}</h1>
+      <div class="hero-copy">{{ .Content }}</div>
+      <div class="hero-actions">
+        <a class="button" href="{{ "/projects/" | relLangURL }}">{{ if $isChinese }}查看公开项目{{ else }}Explore public projects{{ end }}</a>
+        <a class="text-link" href="{{ "/resume/" | relLangURL }}">{{ if $isChinese }}阅读公开履历{{ else }}Read the resume{{ end }}</a>
+      </div>
+    </div>
+    <aside class="hero-note" aria-label="{{ if $isChinese }}出版说明{{ else }}Publication note{{ end }}">
+      <span class="note-mark" aria-hidden="true">✦</span>
+      <p class="eyebrow">{{ if $isChinese }}正在记录{{ else }}Currently writing{{ end }}</p>
+      <p>{{ if $isChinese }}把工作、生活与求职中的观察，整理成可以反复回看的公开笔记。{{ else }}Turning observations from work, life, and job searching into notes worth revisiting.{{ end }}</p>
+      <a href="{{ "/about/" | relLangURL }}">{{ if $isChinese }}了解写作边界 →{{ else }}Read the editorial note →{{ end }}</a>
+    </aside>
   </div>
 </section>
 
@@ -23,7 +33,7 @@
     <div class="post-list">
       {{ range first 3 .ByDate.Reverse }}
         <article class="post-preview">
-          <p class="metadata"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></p>
+          <div class="post-preview-top"><p class="metadata"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></p><span class="post-arrow" aria-hidden="true">↗</span></div>
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
           {{ with .Description }}<p>{{ . }}</p>{{ end }}
         </article>
