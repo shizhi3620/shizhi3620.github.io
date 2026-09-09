@@ -4,7 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
-    {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ $description := or .Description .Site.Params.description }}
+    <meta name="description" content="{{ $description }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <meta property="og:title" content="{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">{{ end }}
     {{ with .OutputFormats.Get "RSS" }}{{ printf `<link rel="alternate" type="application/rss+xml" href="%s" title="%s">` .Permalink $.Site.Title | safeHTML }}{{ end }}
     <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
   </head>

@@ -1,6 +1,6 @@
 ---
 title: "A Public Project Retrospective Starts with Verifiable Records"
-date: 2026-09-11
+date: 2026-09-07
 description: "How to place process, evidence, and next actions on the same map when reviewing a public project."
 tags: ["projects", "retrospective", "open-source"]
 categories: ["projects"]

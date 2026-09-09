@@ -20,7 +20,13 @@ Run the same command used by the pull-request check:
 hugo --minify --gc
 ```
 
-The generated `public/` directory is disposable and is not committed. Pull requests targeting `main` must pass this build before merge; pushes to `main` run the same check. GitHub Pages deployment and its permissions are configured separately once the repository is ready to publish.
+The generated `public/` directory is disposable and is not committed. Pull requests targeting `main` must pass this build before merge. A merge to `main` builds and deploys the site using the GitHub Pages Actions workflow; pull requests never publish the production site.
+
+## GitHub configuration
+
+In the repository's Pages settings, set the deployment source to **GitHub Actions**. The deployment workflow publishes the generated Hugo artifact after a merge to `main`; no custom domain, database, CMS, analytics service, or server is required.
+
+For translation automation, create a repository Actions secret named `DEEPSEEK_API_KEY`. Do not put its value in a workflow file, issue, pull request, commit, or log. Add the `translate` label to a pull request only after the Chinese source content and its metadata are ready. The workflow creates or updates a separate English **draft** pull request for author review; it cannot deploy or merge content.
 
 ## Content and translation
 

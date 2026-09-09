@@ -1,6 +1,6 @@
 ---
 title: "Why I Started This Blog"
-date: 2026-09-10
+date: 2026-09-06
 description: "A public notebook for revisiting observations about life, work, and job searching."
 tags: ["writing", "reflection", "growth"]
 categories: ["life"]

@@ -1,6 +1,6 @@
 ---
 title: "Job-Search Notes: Making the Work Visible"
-date: 2026-09-12
+date: 2026-09-08
 description: "Moving job-search preparation from listing experience to explaining problems, actions, and boundaries clearly."
 tags: ["job-search", "career", "communication"]
 categories: ["job-search"]
