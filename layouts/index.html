@@ -7,7 +7,7 @@
   <div class="hero-grid">
     <div class="hero-main">
       <p class="eyebrow">{{ if $isChinese }}个人出版物 · 公开履历{{ else }}Personal publication · Public profile{{ end }}</p>
-      <h1 id="home-title">{{ if $isChinese }}路长的工作与生活笔记{{ else }}Jim's notes on work and life{{ end }}</h1>
+      <h1 id="home-title" class="{{ if $isChinese }}hero-title-zh{{ else }}hero-title-en{{ end }}">{{ if $isChinese }}路长的工作与生活笔记{{ else }}Jim's notes on work and life{{ end }}</h1>
       <div class="hero-copy">{{ .Content }}</div>
       <div class="hero-actions">
         <a class="button" href="{{ "/projects/" | relLangURL }}">{{ if $isChinese }}查看公开项目{{ else }}Explore public projects{{ end }}</a>
